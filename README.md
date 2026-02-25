@@ -1,6 +1,8 @@
-# Professional Competence Provenance Framework
+# Cupel
 
-**An open specification for how professional competence is verified, tracked, and trusted in the age of AI.**
+**Professional Competence Provenance Framework**
+
+An open specification for how professional competence is verified, tracked, and trusted in the age of AI.
 
 **GitHub:** https://github.com/vdmeu/CUPEL
 
@@ -24,9 +26,9 @@ A formal, open specification — not a product — that defines:
 - **A governance model** for maintaining trust lists and certification standards
 - **Interoperability standards** for connecting existing platforms into a coherent professional trust infrastructure
 
-Think of it as what [C2PA](https://c2pa.org) does for media provenance, applied to professional competence.
+Think of it as what [C2PA](https://c2pa.org) does for media provenance, applied to professional competence. The name comes from the metallurgical assay process: a cupel burns away impurities to reveal the true composition of precious metals. Cupel does the same for professional trust signals.
 
-## Why Open Source
+## Why Open Source (and Why the Name Matters)
 
 This problem requires cross-industry adoption, trust from multiple stakeholders, and interoperability between competing platforms. A proprietary solution can't achieve this. An open standard can.
 
@@ -35,7 +37,7 @@ C2PA didn't succeed by launching a product. It succeeded by publishing a specifi
 ## Project Structure
 
 ```
-professional-competence-provenance/
+cupel/
 ├── docs/
 │   ├── 00-genesis/          # Origin story and foundational analysis
 │   ├── 01-manifesto/        # The public-facing case for this framework
@@ -82,4 +84,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). All contributions require a Contributor 
 
 ---
 
-*This project was initiated in February 2026. The genesis document establishes prior art and the analytical foundation for all subsequent work.*
+*Cupel was initiated in February 2026. The genesis document establishes prior art and the analytical foundation for all subsequent work.*

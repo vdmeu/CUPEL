@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to the Professional Competence Provenance Framework.
+Thank you for your interest in contributing to Cupel (Professional Competence Provenance Framework).
 
 ## Contributor Licence Agreement (CLA)
 
@@ -35,7 +35,7 @@ Open an issue to start a discussion.
 
 ## Code of Conduct
 
-Be constructive, be specific, be respectful. This project exists because trust infrastructure matters — let's build the community with the same integrity we want to embed in the standard.
+Be constructive, be specific, be respectful. Cupel exists because trust infrastructure matters — let's build the community with the same integrity we want to embed in the standard.
 
 ## Licence
 

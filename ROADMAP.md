@@ -4,7 +4,7 @@
 - [x] Establish analytical foundation and market research
 - [x] Document the chain of reasoning (conversation context)
 - [x] Create project structure
-- [ ] Register trademark for framework name (pending name finalisation)
+- [ ] Register trademark for Cupel (name finalised February 2026)
 - [ ] Establish timestamped prior art (arXiv preprint or equivalent)
 
 ## Phase 1: Manifesto & Specification Draft

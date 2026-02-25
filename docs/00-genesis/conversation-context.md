@@ -1,7 +1,7 @@
 # Genesis: The Conversation That Started This Project
 
 **Date:** 16 February 2026
-**Context:** This document captures the analytical thread that led to the Professional Competence Provenance Framework. It records the chain of reasoning, research, and strategic thinking so that the origins of this project are transparent and timestamped.
+**Context:** This document captures the analytical thread that led to Cupel (Professional Competence Provenance Framework). It records the chain of reasoning, research, and strategic thinking so that the origins of this project are transparent and timestamped.
 
 ---
 
