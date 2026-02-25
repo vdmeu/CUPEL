@@ -2,6 +2,8 @@
 
 **An open specification for how professional competence is verified, tracked, and trusted in the age of AI.**
 
+**GitHub:** https://github.com/vdmeu/CUPEL
+
 ---
 
 ## The Problem
