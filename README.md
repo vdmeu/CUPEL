@@ -52,7 +52,10 @@ cupel/
 
 ## Current Status
 
-**Phase 0: Genesis** — Establishing the analytical foundation and project structure.
+**Phase 1: Manifesto & Specification** — Manifesto published. Schema and taxonomy in progress.
+
+- Timestamped preprint: [doi.org/10.5281/zenodo.18976395](https://doi.org/10.5281/zenodo.18976395) (published 11 March 2026)
+- Manifesto: [docs/01-manifesto/manifesto-v0.3.md](docs/01-manifesto/manifesto-v0.3.md)
 
 See [docs/00-genesis/conversation-context.md](docs/00-genesis/conversation-context.md) for the full chain of reasoning, market research, and strategic analysis that led to this project.
 

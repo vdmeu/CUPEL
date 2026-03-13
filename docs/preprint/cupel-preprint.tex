@@ -1,0 +1,370 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Cupel: A Framework for Professional Competence Provenance}\\
+\large Position Paper and Framework Specification — v0.1}
+
+\author{
+  Eugene Andrie Merwe-Chartier\\
+  \href{https://cupel.foundation}{cupel.foundation}\\
+  \href{mailto:contact@cupel.foundation}{contact@cupel.foundation}
+}
+
+\date{11 March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Traditional professional credentials — degrees, certifications, licensing examinations — functioned
+as scalable proxies for competence. This proxy relationship has broken down as artificial intelligence
+systems demonstrate the ability to pass professional-grade assessments without possessing the judgment,
+accountability, or contextual experience that credentials were designed to signal. The result is a
+structural trust deficit in professional labour markets: credential counts have grown from 334,000 to
+1.85 million in the United States alone since 2018, yet verification quality and hiring confidence
+have simultaneously declined. This paper identifies the gap in the current market landscape — five
+fragmented layers of trust infrastructure with no cross-cutting evaluation or interoperability layer
+— and proposes Cupel, an open framework specification for professional competence provenance. Cupel
+defines a taxonomy of trust signal types, a schema for representing and linking those signals, and
+an interoperability architecture that sits above existing standards including W3C Verifiable
+Credentials, C2PA, the Credential Transparency Description Language (CTDL), and Open Badges 3.0.
+The framework is released under AGPL-3.0, with trademark protection ensuring conformance integrity.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+
+Professional credentials have historically served a dual purpose: they conveyed information about
+competence to parties unable to evaluate it directly, and they created accountability infrastructure
+around professional practice. A chartered accountant, licensed physician, or admitted barrister was
+not merely a knowledge marker — they were an accountability node embedded in a system of professional
+bodies, regulatory oversight, and liability mechanisms.
+
+The effectiveness of credentials as competence proxies depended on a single equilibrium condition:
+\emph{gaming the proxy must be roughly as hard as becoming genuinely competent}. This condition has
+been violated. In September 2025, large language models passed CFA Level III mock examinations
+including written essays. The same pattern has emerged across the bar exam, medical licensing
+examinations, and engineering certification assessments. AI systems can acquire the signal without
+acquiring the substance.
+
+This is a textbook instantiation of Goodhart's Law: when a measure becomes a target, it ceases to be
+a good measure~\cite{goodhart1975}. The credential system is not simply degrading — it is
+fragmenting. The number of unique credentials in the United States grew from 334,114 in 2018 to
+1.85 million by 2025~\cite{credentialengine2025}. The system has responded to declining signal
+quality by increasing signal volume, which compounds the original problem.
+
+The consequences are empirically measurable. SHRM research shows that educational background dropped
+from the fourth most important hiring factor among HR professionals in 2021 to sixth by 2025.
+Gartner projects that one in four candidate profiles worldwide will be entirely fabricated by 2028,
+and 41\% of enterprises report having already onboarded a fraudulent candidate~\cite{gartner2025}.
+Nearly one in four HR professionals report that credential quality is too difficult to
+determine~\cite{shrm2025}.
+
+The problem is structural, not cyclical. It requires new infrastructure, not incremental improvement
+of existing systems. This paper describes that infrastructure: the Cupel Professional Competence
+Provenance Framework.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{What Credentials Actually Did}
+
+Understanding what must replace credentials requires clarity on what they actually provided. Four
+distinct functions are now unbundling:
+
+\textbf{Information asymmetry resolution.} Credentials were trust shortcuts for principals who
+cannot evaluate agent competence directly. If AI can produce competent-seeming professional output,
+the principal now faces \emph{worse} information asymmetry: they cannot determine whether the
+professional is applying judgment on top of AI output or simply relaying it.
+
+\textbf{Accountability infrastructure.} Professional credentials were embedded in systems of licence
+revocation, malpractice liability, and disciplinary action. AI-generated output carries no equivalent
+accountability infrastructure. The credential was the entry condition for accountability, not merely
+a knowledge signal.
+
+\textbf{Community of practice gatekeeping.} Much professional expertise is tacit knowledge
+distributed within practice communities. The credential was the admission ticket. This gatekeeping
+function persists even as the knowledge-signalling function collapses, creating an increasingly
+hollow dynamic.
+
+\textbf{Scalable evaluation.} Credential verification scales: a recruiter can screen 10,000
+applicants by checking degrees. Any replacement system must address scalability. Most proposed
+alternatives — portfolio review, work samples, structured reference checks — are high-bandwidth
+but low-scale. This asymmetry is the central engineering challenge.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Emerging Trust Mechanisms}
+
+Five new trust mechanisms are forming at different stages of maturity. The Cupel framework is
+designed to provide infrastructure for all five.
+
+\subsection{Demonstrated Outcome Trails}
+Verifiable records of actions taken and outcomes achieved: portfolios, open-source contributions,
+competition results, documented client outcomes, and public track records. This is the most mature
+emerging mechanism. Its limitation is domain specificity — outcome trails that are legible in
+software engineering (GitHub) or data science (Kaggle) have no equivalent in consulting,
+legal practice, or financial advisory.
+
+\subsection{Behavioural Consistency Signals}
+Consistency across time and contexts as a primary trust signal. A professional with a decade of
+context-appropriate judgment documented across engagements signals something a certification cannot.
+Consistency is hard to fake because it requires sustained performance. It is also hard to
+\emph{capture} without infrastructure purpose-built for that function.
+
+\subsection{Network-Verified Reputation}
+Professional networks becoming the primary trust mechanism rather than a supplement. 63\% of
+consumers identify verified reviews as the most important trust signal~\cite{brightlocal2025}. In
+professional contexts this manifests as referral networks, public endorsements, and the
+``who vouches for you'' graph. The limitation is susceptibility to network homophily and
+collusion.
+
+\subsection{Process Transparency and Human-AI Collaboration Records}
+The new credential is not ``I know finance'' but ``here is how I use AI in my process, here is
+where I override it, and here is my track record of those overrides being correct.'' Trust shifts
+from \emph{what you know} to \emph{how you think} alongside AI systems. This is nascent but
+structurally important as AI capability continues to advance.
+
+\subsection{Provenance and Attribution Infrastructure}
+Watermarking, human-in-the-loop documentation, and chain-of-custody metadata for professional
+work product. The analogy is organic food labelling: a mechanism for distinguishing
+human-exercised judgment from AI-generated output at the level of individual work products.
+This layer is very early but is being accelerated by regulatory requirements including
+the EU AI Act.
+
+\subsection{The Structural Tension}
+
+Old credentials were \emph{scalable but low-bandwidth}. New trust mechanisms are
+\emph{high-bandwidth but low-scale}. This asymmetry creates market bifurcation: high-value
+professional work will operate on rich, verified trust signals; routine work will be commoditised
+into AI pipelines with binary quality checks. The middle layer of professional practice faces
+the most disruption.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Market Landscape and the Gap}
+
+The current market for professional trust infrastructure can be characterised as five layers,
+each with distinct players and commercial dynamics.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{0.22\textwidth}p{0.35\textwidth}p{0.35\textwidth}@{}}
+\toprule
+\textbf{Layer} & \textbf{Representative Players} & \textbf{Maturity} \\
+\midrule
+Identity Verification \& Fraud Detection
+  & Yardstik, GetReal Security, Pindrop, Sherlock AI
+  & Most funded; pain-driven buying \\
+\addlinespace
+Skills Assessment \& Validation
+  & TestGorilla, HireVue, Codility, Pymetrics
+  & Growing fast; 41\% of firms now use assessments \\
+\addlinespace
+Digital Credential Infrastructure
+  & Credential Engine (CTDL), MIT DCC, 1EdTech (CLR)
+  & Standards-building; technically strong, commercially early \\
+\addlinespace
+Content Provenance \& Authenticity
+  & C2PA coalition (200+ members inc.\ Adobe, Microsoft, Google)
+  & Regulatory-driven; ISO fast-track underway \\
+\addlinespace
+Professional Reputation \& Outcome Tracking
+  & LinkedIn (self-reported), Crosschq, Toptal, Kaggle
+  & Least developed; biggest structural gap \\
+\bottomrule
+\end{tabular}
+\caption{The five-layer professional trust infrastructure landscape.}
+\end{table}
+
+Most investment is concentrated in Layers 1 and 2: detecting fraud and testing skills. These are
+defensive plays. The \emph{constructive} infrastructure — systems that positively identify
+competence and track demonstrated judgment over time — is severely underdeveloped.
+
+The critical absence is a \textbf{cross-cutting evaluation and interoperability layer}: a common
+language for describing, linking, and evaluating professional competence signals across the entire
+fragmented ecosystem. With 1.85 million credentials in circulation and widespread inability to
+evaluate them, this aggregation layer represents the most significant unmet structural need in
+professional labour markets.
+
+The logical convergence point is a unified professional competence provenance system that
+connects all five layers into a coherent, interoperable whole. Whoever defines the architecture
+for this convergence is building the replacement for the degree.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Cupel Framework}
+
+\subsection{Design Rationale: Open Standard Over Product}
+
+The Coalition for Content Provenance and Authenticity (C2PA) provides the most instructive
+precedent. C2PA succeeded not by launching a product but by publishing a specification and building
+a coalition. It is now fast-tracked as an ISO standard and has over 200 member organisations.
+The professional competence provenance problem is structurally similar: it requires cross-industry
+adoption, trust from multiple competing stakeholders, and interoperability between platforms with
+conflicting commercial interests. An open standard maximises adoption and positions the framework
+as neutral infrastructure rather than as a competitor to existing players.
+
+\subsection{Framework Components}
+
+Cupel specifies five interrelated components:
+
+\textbf{Trust Signal Taxonomy.} A structured classification of professional competence signals
+into five types:
+\begin{itemize}[noitemsep]
+  \item \emph{Credential-based}: issued qualifications, licences, certifications
+  \item \emph{Assessment-based}: structured evaluations of demonstrated skill
+  \item \emph{Outcome-based}: verifiable records of actions and consequences
+  \item \emph{Peer-verified}: endorsements and attestations from identified third parties
+  \item \emph{Provenance-tracked}: chain-of-custody records for professional work product
+\end{itemize}
+
+\textbf{Core Schema.} A JSON-LD schema for expressing trust signals and their relationships,
+aligned with the W3C Verifiable Credentials data model. The schema captures signal type,
+issuer identity, subject identity, temporal scope, domain specificity, and verification method.
+
+\textbf{Signal Quality Criteria.} Evaluation dimensions for assessing the evidential weight of
+individual signals: source credibility, recency, verifiability, specificity, and consistency
+with concurrent signals.
+
+\textbf{Interoperability Architecture.} Defined mappings between Cupel signal types and
+existing standards, enabling bidirectional translation without requiring issuing platforms to
+adopt the full framework.
+
+\textbf{Governance Model.} A trust list maintenance mechanism, conformance programme, and
+contributor framework modelled on established open standards governance (W3C, IETF, C2PA).
+
+\subsection{Relationship to Existing Standards}
+
+Cupel does not replace existing standards. It sits above them as an evaluation and
+interoperability layer:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}p{0.28\textwidth}p{0.65\textwidth}@{}}
+\toprule
+\textbf{Standard} & \textbf{Role in Cupel Architecture} \\
+\midrule
+W3C Verifiable Credentials & Cryptographic verification layer for all signal types \\
+C2PA & Content provenance architecture; template for work product provenance signals \\
+Credential Engine / CTDL & Structured description of credential-based signals \\
+Open Badges 3.0 / CLR & Micro-credential and learner record formats for assessment-based signals \\
+ISO/IEC 27001, 29101 & Security and privacy frameworks for implementation conformance \\
+\bottomrule
+\end{tabular}
+\caption{Cupel's relationship to existing standards.}
+\end{table}
+
+The novel contribution is the cross-cutting layer: a unified representation that allows a
+composite professional competence provenance profile to be constructed from signals originating
+in any of the above ecosystems.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Licensing and IP Strategy}
+
+The framework specification and core schema are released under AGPL-3.0. Any implementation
+may use the technical content without restriction. The Cupel name and logo are trademarked
+(UK00004352899, filed 11 March 2026), ensuring that conformance claims carry meaning: only
+implementations that meet published conformance criteria may identify themselves as Cupel
+implementations. This follows the Linux and OpenID precedent.
+
+Evaluation algorithms, signal quality scoring methodologies, and governance tooling are
+reserved under a commercial licence as part of the open core model. This structure allows the
+specification to achieve broad adoption while sustaining the development work required to
+maintain it.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+
+The credential system that organised professional labour markets for most of the twentieth century
+is structurally compromised. The cause is not a failure of the system's operators but a
+fundamental breakdown in the equilibrium condition on which the system depended. AI has made
+it possible to acquire the signal without acquiring the substance.
+
+The market response to date has concentrated on defensive infrastructure: detecting fraud,
+testing skills in controlled environments. The constructive work of building new positive trust
+infrastructure — systems that capture and verify demonstrated judgment over time — is largely
+undone.
+
+Cupel proposes the architecture for that infrastructure. It is released as an open standard
+because the problem requires coalition, not competition. The specification, reference
+implementation, and governance framework are available at
+\href{https://github.com/vdmeu/CUPEL}{github.com/vdmeu/CUPEL} and
+\href{https://cupel.foundation}{cupel.foundation}.
+
+Community input on the taxonomy, schema, and interoperability mappings is welcomed through the
+repository's issue tracker and discussion board.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgements}
+
+The analytical foundation for this framework was developed in February 2026 and is documented
+in full at \href{https://github.com/vdmeu/CUPEL/blob/main/docs/00-genesis/conversation-context.md}{docs/00-genesis/conversation-context.md},
+which serves as the timestamped record of the intellectual origin of this work.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{9}
+
+\bibitem{goodhart1975}
+Goodhart, C.A.E. (1975).
+\textit{Problems of Monetary Management: The U.K. Experience}.
+Papers in Monetary Economics, Reserve Bank of Australia.
+
+\bibitem{credentialengine2025}
+Credential Engine (2025).
+\textit{Counting U.S. Postsecondary and Secondary Credentials}.
+Washington, DC: Credential Engine.
+\url{https://credentialengine.org/counting-credentials/}
+
+\bibitem{gartner2025}
+Gartner (2025).
+\textit{Predicts 2025: Artificial Intelligence in Human Capital Management}.
+Gartner Research.
+
+\bibitem{shrm2025}
+Society for Human Resource Management (2025).
+\textit{Skills-Based Hiring and the Changing Value of Credentials}.
+SHRM Research.
+
+\bibitem{brightlocal2025}
+BrightLocal (2025).
+\textit{Local Consumer Review Survey 2025}.
+\url{https://www.brightlocal.com/research/local-consumer-review-survey/}
+
+\bibitem{c2pa2024}
+Coalition for Content Provenance and Authenticity (2024).
+\textit{C2PA Technical Specification v2.1}.
+\url{https://c2pa.org/specifications/}
+
+\bibitem{w3cvc2022}
+Sporny, M., Longley, D., Chadwick, D. (2022).
+\textit{Verifiable Credentials Data Model v1.1}.
+W3C Recommendation. \url{https://www.w3.org/TR/vc-data-model/}
+
+\bibitem{openbadges2023}
+1EdTech Consortium (2023).
+\textit{Open Badges Specification v3.0}.
+\url{https://www.imsglobal.org/spec/ob/v3p0/}
+
+\end{thebibliography}
+
+\end{document}
