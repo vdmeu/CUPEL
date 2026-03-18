@@ -180,3 +180,49 @@ The novel contribution is the **cross-cutting evaluation and interoperability la
 - Illinois AI hiring law: bans discriminatory AI use, prohibits ZIP code proxies
 - Colorado AI Act (June 2026): comprehensive high-risk AI system regulation
 - NYC: annual bias audits required for automated employment decision tools
+
+---
+
+## Part 6: Framework Stress-Testing — March 2026
+
+*Added 18 March 2026. Records the analytical thread from external critique of the framework (GitHub issue #22) and the conclusions drawn.*
+
+### The Red-Team: What External Critique Revealed
+
+Following publication of the preprint (Zenodo, 11 March 2026), the framework was subjected to structured critique. The following gaps and refinements emerged.
+
+### Confirmed Gap 1: Process Metadata in Provenance-Tracked Signals
+
+The original framework defined "provenance-tracked" as chain-of-custody records for professional work product. Critique correctly identified that this is insufficient: AI can produce polished final outputs that are indistinguishable from expert human work. The differentiating signal is not the output — it is the process.
+
+Provenance-tracked signals must capture **process metadata**: iteration history, human decision points, and mid-course corrections that characterise genuine professional engagement. The concept of a **tool-identifier** field — requiring disclosure of which AI systems were used and in what capacity — is a concrete, low-friction schema requirement that operationalises this distinction.
+
+The manifesto principle "competence comes from real work" requires a companion: *how that work was done matters as much as what was produced.*
+
+### Confirmed Gap 2: The Oracle Problem of Attribution
+
+If Cupel relies on issuing systems (certification bodies, HR platforms, assessment providers) to supply signal metadata, the framework's trust guarantees are bounded by those systems' integrity. A dishonest or negligent issuer can supply structurally conformant but substantively false signals — the framework standardises the lie alongside the truth.
+
+The solution is an **issuer trust graph**: a market mechanism in which issuers accumulate credibility based on the observable correlation between their signals and verified outcomes over time. This follows the pattern of email sender reputation (SPF/DKIM scoring): no central authority assigns credibility; it emerges from longitudinal track records. This is part of the commercial open-core layer, not the open specification.
+
+### Confirmed Gap 3: Adoption Friction and the Micro-Credential Wedge
+
+The initial adoption strategy should explicitly target the **alternative credential and micro-assessment ecosystem**: coding bootcamps, AI-tutor platforms, portfolio-based assessors, open-source contribution tracking. These organisations gain most from interoperability (their signals are currently unreadable to enterprise hiring systems) and have no incumbent lock-in to protect.
+
+Broad adoption in the long tail creates interoperability pressure that eventually compels larger incumbents to participate. Regulatory tailwinds — EU AI Act transparency requirements — provide leverage with larger players for whom compliance is a structural incentive.
+
+### Confirmed Gap 4: Scalable Human-Readable Output
+
+The framework must define a **trust signal summary** — a human-readable digest of the full signal graph that can be processed in a 15-second recruiter scan. Without this, the framework will be adopted by engineers and ignored by the humans making hiring decisions. The summary is a presentation layer, not a technical specification concern, but the spec must define it or it will not get built.
+
+### What Critique Correctly Challenged But Misframed
+
+**Human-AI Ratio (HAR):** External critique independently rediscovered the "Centaur Certification" concept from §3.4, framing it as a numerical ratio. A ratio implies a clean decomposition that doesn't exist and would mislead. The correct framing is **attribution clarity at the decision level**: who made the key choices, what alternatives existed, and what accountability follows. This is already in the framework; it needs clearer exposition.
+
+**Sybil attacks on peer validation:** This misunderstands the multi-signal model. Peer-verified signals are one of five. Signal diversity is the structural defence — inflating one layer does not compensate for absence of evidence across the others.
+
+**Zero-Knowledge Proofs:** Directionally right (privacy matters) but architecturally premature for v1. W3C VCs support selective disclosure; that is the appropriate reference. ZKP may be relevant in future versions.
+
+### The Privacy Principle (Added Explicitly)
+
+The framework defines a vocabulary, not a surveillance architecture. Conformant implementations must support **selective disclosure**: practitioners control which signals are shared, with which parties, and for which purposes. Detailed process logs create a real privacy tension; selective disclosure is the structural answer. This must be explicit in the spec and in the manifesto.

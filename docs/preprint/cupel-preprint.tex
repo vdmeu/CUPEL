@@ -20,7 +20,7 @@
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
 
 \title{\textbf{Cupel: A Framework for Professional Competence Provenance}\\
-\large Position Paper and Framework Specification — v0.1}
+\large Position Paper and Framework Specification — v0.2}
 
 \author{
   Eugene Andrie Merwe-Chartier\\
@@ -28,7 +28,7 @@
   \href{mailto:contact@cupel.foundation}{contact@cupel.foundation}
 }
 
-\date{11 March 2026}
+\date{18 March 2026 (revised; original: 11 March 2026)}
 
 \begin{document}
 
@@ -144,12 +144,35 @@ where I override it, and here is my track record of those overrides being correc
 from \emph{what you know} to \emph{how you think} alongside AI systems. This is nascent but
 structurally important as AI capability continues to advance.
 
+A critical property of this signal type is that it captures \emph{attribution clarity} — not a
+ratio of human versus machine effort, but a record of at which decision points human judgment was
+exercised, what alternatives were available, and what the consequences were. A practitioner who
+delegates execution to AI while making all structural choices is exercising full professional
+accountability; the relevant signal is the quality and track record of those structural choices,
+not the volume of manual work.
+
 \subsection{Provenance and Attribution Infrastructure}
-Watermarking, human-in-the-loop documentation, and chain-of-custody metadata for professional
-work product. The analogy is organic food labelling: a mechanism for distinguishing
+Content credentials, human-in-the-loop documentation, and chain-of-custody metadata for
+professional work product. The term \emph{content credentials} follows C2PA's established
+nomenclature for cryptographically-bound provenance metadata attached to a digital
+artefact~\cite{c2pa2024}. The analogy is organic food labelling: a mechanism for distinguishing
 human-exercised judgment from AI-generated output at the level of individual work products.
-This layer is very early but is being accelerated by regulatory requirements including
-the EU AI Act.
+This layer is being accelerated by regulatory requirements including EU AI Act Article 50
+content provenance obligations and the California AI Transparency Act (disclosure requirements
+effective January 2026).
+
+Critically, provenance-tracked signals must capture an \emph{AI audit trail} — a structured
+log of process metadata — in addition to final outputs. The term ``AI audit trail'' is now
+established in both regulatory compliance contexts and enterprise AI governance
+frameworks~\cite{audit2025}. An AI system can produce a polished final deliverable that is
+indistinguishable from expert human output. What AI cannot replicate authentically is the
+iterative trail of a human-led process: the drafts, corrections, mid-course reversals, and
+contextually-situated judgments that characterise genuine professional engagement with a problem.
+A provenance-tracked signal for a piece of professional work should therefore include, at minimum:
+the content credential (which AI systems, if any, were used and in what capacity, expressed in
+a C2PA-compatible format), the AI audit trail (evidence of human decision points across the
+development of the work), and the accountability anchor (who is responsible for the outcome and
+under what professional framework).
 
 \subsection{The Structural Tension}
 
@@ -234,12 +257,35 @@ into five types:
   \item \emph{Assessment-based}: structured evaluations of demonstrated skill
   \item \emph{Outcome-based}: verifiable records of actions and consequences
   \item \emph{Peer-verified}: endorsements and attestations from identified third parties
-  \item \emph{Provenance-tracked}: chain-of-custody records for professional work product
+  \item \emph{Provenance-tracked}: content credentials and AI audit trails for professional
+        work product, capturing both chain-of-custody metadata and the process record
+        (AI tool disclosure, human decision points, iteration history)
 \end{itemize}
 
+The five-type model is designed for signal \emph{diversity} — what practitioners in
+skills-based hiring increasingly term a \emph{trust portfolio}~\cite{sbhiring2025}: no single
+signal type is sufficient, and the evidential weight of a competence claim increases with
+corroboration across multiple independent signal types. This design makes the framework resistant
+to single-vector gaming: inflating peer-verified signals, for example, does not compensate for
+absence of outcome-based or provenance-tracked evidence.
+
 \textbf{Core Schema.} A JSON-LD schema for expressing trust signals and their relationships,
-aligned with the W3C Verifiable Credentials data model. The schema captures signal type,
-issuer identity, subject identity, temporal scope, domain specificity, and verification method.
+aligned with the W3C Verifiable Credentials Data Model v2.0~\cite{w3cvc2022}. The schema
+captures signal type, issuer identity, subject identity, temporal scope, domain specificity,
+and verification method. For provenance-tracked signals specifically, the schema includes a
+\texttt{contentCredential} field (C2PA-compatible declaration of AI tools used and their scope
+of involvement) and an \texttt{auditTrail} field (structured log of human decision points and
+process iterations). These fields are optional for other signal types but required for
+provenance-tracked signals.
+
+\textbf{Selective Disclosure Principle.} The framework defines a vocabulary for describing
+competence signals; it does not mandate a surveillance architecture. Conformant implementations
+must support selective disclosure: a practitioner controls which signals are shared, with which
+parties, and for which purposes. This principle is consistent with W3C Verifiable Credentials'
+selective disclosure capabilities and with the EU General Data Protection Regulation's data
+minimisation requirements. Provenance tracking creates a potential privacy tension — detailed
+process logs could expose proprietary methods or working patterns — and the selective disclosure
+principle is the framework's structural answer to that tension.
 
 \textbf{Signal Quality Criteria.} Evaluation dimensions for assessing the evidential weight of
 individual signals: source credibility, recency, verifiability, specificity, and consistency
@@ -251,6 +297,25 @@ adopt the full framework.
 
 \textbf{Governance Model.} A trust list maintenance mechanism, conformance programme, and
 contributor framework modelled on established open standards governance (W3C, IETF, C2PA).
+
+The governance model must specifically address what may be termed the \emph{oracle problem of
+attribution}: if Cupel relies on issuing systems (certification bodies, HR platforms, assessment
+providers) to supply signal metadata, the framework's trust guarantees are bounded by the
+integrity of those systems. A dishonest or negligent issuer can supply structurally conformant
+but substantively false signals.
+
+The framework addresses this through an \emph{issuer trust registry}: a reputation mechanism
+in which issuers accumulate credibility based on the observable real-world correlation between
+their signals and verified outcomes over time. The term ``trust registry'' is established in
+W3C Verifiable Credentials contexts and in MIT's Digital Credentials Consortium Governance
+Framework for Issuer Identity Registries (June 2025)~\cite{mitdcc2025}. This is a market
+mechanism, not a technical mandate. It follows the pattern of email sender reputation systems
+(SPF/DKIM scoring) and OpenID Federation's trust chains: no central authority assigns
+credibility; credibility emerges from the longitudinal track record of each issuer's signals.
+Evaluators weight signals from high-integrity issuers more heavily, and the market incentivises
+issuers to maintain signal quality. The issuer trust registry is part of the commercial
+open-core layer rather than the open specification, as it requires ongoing data collection and
+curation infrastructure.
 
 \subsection{Relationship to Existing Standards}
 
@@ -311,6 +376,17 @@ implementation, and governance framework are available at
 \href{https://github.com/vdmeu/CUPEL}{github.com/vdmeu/CUPEL} and
 \href{https://cupel.foundation}{cupel.foundation}.
 
+The framework's adoption strategy targets the alternative credential and micro-assessment
+ecosystem as the initial cohort: coding bootcamps, AI-tutor platforms, portfolio-based
+assessment providers, and open-source contribution tracking tools. These organisations have
+the most to gain from interoperability — their signals are currently unreadable to enterprise
+hiring systems — and no incumbent lock-in to protect. Broad adoption in the long tail of the
+credential ecosystem creates the interoperability pressure that eventually compels larger
+platforms to participate, mirroring the bottom-up adoption dynamics of C2PA and Open Badges.
+Regulatory tailwinds — particularly the EU AI Act's transparency requirements — provide
+additional leverage with larger incumbents for whom compliance creates a structural incentive
+to adopt standardised provenance formats.
+
 Community input on the taxonomy, schema, and interoperability mappings is welcomed through the
 repository's issue tracker and discussion board.
 
@@ -364,6 +440,26 @@ W3C Recommendation. \url{https://www.w3.org/TR/vc-data-model/}
 1EdTech Consortium (2023).
 \textit{Open Badges Specification v3.0}.
 \url{https://www.imsglobal.org/spec/ob/v3p0/}
+
+\bibitem{audit2025}
+Loe, I. (2025).
+\textit{Your AI Agent Needs an Audit Trail, Not Just a Guardrail}.
+Medium / AI Governance. \url{https://medium.com/@ianloe/your-ai-agent-needs-an-audit-trail-not-just-a-guardrail-6a41de67ae75}
+
+\bibitem{mitdcc2025}
+Digital Credentials Consortium, MIT (2025).
+\textit{Governance Framework for Issuer Identity Registries}.
+\url{https://digitalcredentials.mit.edu/docs/Governance-Framework-for-Issuer-Identity-Registries.pdf}
+
+\bibitem{sbhiring2025}
+National Association of Colleges and Employers (2026).
+\textit{Skills-Based Hiring Grows but College Students Don't Fully Understand It}.
+NACE. \url{https://www.naceweb.org/about-us/press/2026/skills-based-hiring-grows-but-college-students-dont-fully-understand-it}
+
+\bibitem{euaiact2024}
+European Parliament and Council (2024).
+\textit{Regulation (EU) 2024/1689 on Artificial Intelligence (AI Act)}.
+\url{https://artificialintelligenceact.eu/article/14/}
 
 \end{thebibliography}
 
