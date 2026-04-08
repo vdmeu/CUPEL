@@ -217,7 +217,7 @@ export default function Home() {
           </a>
         </div>
         <div className="mt-4 text-xs text-[var(--border)]">
-          Cupel is a trademark of Eugene Andrie Merwe-Chartier. Open-source under AGPL-3.0.
+          Cupel is a trademark of Eugene Andrie Merwe-Chartier. Open-source under Apache 2.0.
         </div>
       </footer>
     </div>

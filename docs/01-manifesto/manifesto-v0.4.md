@@ -52,7 +52,7 @@ Cupel is designed for selective disclosure. Participation is voluntary, and indi
 
 Cupel works with existing systems, not against them. Any credential issuer, assessment body, or HR platform can participate without changing their core infrastructure.
 
-The project is open-source (AGPL-3.0) and trademark-protected (UK IPO No. UK00004352899). "Cupel-conformant" means meeting published technical and ethical criteria—just as Linux or OpenID use open tech but protected names.
+The project is open-source (Apache 2.0) and trademark-protected (UK IPO No. UK00004352899). "Cupel-conformant" means meeting published technical and ethical criteria—just as Linux or OpenID use open tech but protected names.
 
 Who we invite
 Implementers: Connect your existing credentials or tests to the Cupel taxonomy. You don't need to adopt everything at once.

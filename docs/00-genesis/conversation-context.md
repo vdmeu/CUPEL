@@ -130,7 +130,7 @@ This includes:
 
 ### IP and licensing strategy
 
-- **Open core model:** The specification and core schema are fully open (AGPL-3.0). Evaluation algorithms, quality scoring methodologies, and governance tooling reserved under commercial licence.
+- **Open core model:** The specification and core schema are fully open (Apache 2.0). Evaluation algorithms, quality scoring methodologies, and governance tooling reserved under commercial licence.
 - **Trademark protection:** The framework name and logo are trademarked. Anyone can use the tech; only certified implementations use the brand.
 - **Prior art establishment:** This document and the initial repository commit serve as timestamped evidence of origin.
 - **Contributor Licence Agreement:** Ensures contributors grant sufficient rights to maintain the open core model.

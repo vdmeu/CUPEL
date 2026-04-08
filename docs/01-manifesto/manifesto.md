@@ -84,7 +84,7 @@ The Coalition for Content Provenance and Authenticity provides the most instruct
 
 The professional competence provenance problem is structurally identical: it requires cross-industry adoption, trust from competing stakeholders, and interoperability between platforms with conflicting commercial interests. A proprietary solution maximises extraction. An open standard maximises adoption and legitimacy.
 
-Cupel is released under AGPL-3.0. The specification, core schema, and reference implementation are fully open. The Cupel name is trademarked (UK IPO, Class 42), so conformance claims carry meaning: only implementations meeting published criteria may identify themselves as Cupel-conformant. This follows the Linux and OpenID precedent — open technology, protected brand.
+Cupel is released under Apache 2.0. The specification, core schema, and reference implementation are fully open. The Cupel name is trademarked (UK IPO, Class 42), so conformance claims carry meaning: only implementations meeting published criteria may identify themselves as Cupel-conformant. This follows the Linux and OpenID precedent — open technology, protected brand.
 
 ---
 

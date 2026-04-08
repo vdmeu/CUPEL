@@ -8,7 +8,7 @@ This document establishes the trademark policy for the Cupel Professional Compet
 
 ## What Is Open and What Is Protected
 
-The Cupel **specification, schema, and reference implementation** are open source, licensed under AGPL-3.0. Anyone may read, implement, fork, and build upon them without restriction.
+The Cupel **specification, schema, and reference implementation** are open source, licensed under Apache 2.0. Anyone may read, implement, fork, and build upon them without restriction.
 
 The Cupel **name and logo** are trademarked. They signal that an implementation meets the framework's conformance criteria. This protects users from confusion and ensures the Cupel brand remains a reliable trust signal.
 

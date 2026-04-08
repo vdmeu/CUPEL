@@ -46,7 +46,7 @@ cupel/
 ├── schema/                  # Core schema definitions (JSON-LD, etc.)
 ├── CONTRIBUTING.md          # How to contribute
 ├── ROADMAP.md               # Development roadmap
-├── LICENSE                  # AGPL-3.0 (GNU Affero General Public License v3)
+├── LICENSE                  # Apache 2.0
 └── README.md                # This file
 ```
 
@@ -77,7 +77,7 @@ This framework does not compete with existing efforts. It sits on top of them as
 
 ## Licence
 
-Core specification and schema: [AGPL-3.0](LICENSE) (GNU Affero General Public License v3.0)
+Core specification and schema: [Apache 2.0](LICENSE)
 
 Certain evaluation methodologies and scoring algorithms may be released under separate commercial licences as part of an open core model. These will be clearly marked and separated from the open specification.
 

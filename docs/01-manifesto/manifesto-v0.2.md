@@ -46,7 +46,7 @@ Cupel is an open framework specification for professional competence provenance.
 
 It sits above existing infrastructure, not against it. Credential issuers, assessment platforms, professional bodies, and verifiers can participate without rebuilding their systems. The framework is designed to be adopted layer by layer — a platform does not need to implement everything to contribute something.
 
-The specification is released under AGPL-3.0. The Cupel name is trademarked (UK IPO No. UK00004352899, Class 42), ensuring that conformance claims carry meaning: only implementations meeting published criteria may identify themselves as Cupel-conformant. This follows the Linux and OpenID precedent — open technology, protected brand.
+The specification is released under Apache 2.0. The Cupel name is trademarked (UK IPO No. UK00004352899, Class 42), ensuring that conformance claims carry meaning: only implementations meeting published criteria may identify themselves as Cupel-conformant. This follows the Linux and OpenID precedent — open technology, protected brand.
 
 ---
 

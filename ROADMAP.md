@@ -18,7 +18,7 @@
 - [ ] Build reference schema validator
 - [ ] Create example trust signal documents across professional domains
 - [ ] Develop proof-of-concept interoperability bridge (at least two existing standards)
-- [ ] Publish reference implementation under AGPL-3.0
+- [ ] Publish reference implementation under Apache 2.0
 - [ ] Define trust signal summary format: a human-readable digest of the full signal graph suitable for a 15-second recruiter scan
 
 ## Phase 3: Coalition Building
