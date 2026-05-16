@@ -20,7 +20,8 @@
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
 
 \title{\textbf{Cupel: A Framework for Professional Competence Provenance}\\
-\large Position Paper and Framework Specification — v0.2}
+\large Verifying Human Expertise in a World of Capable Machines\\
+\normalsize Position Paper and Framework Specification — v0.3}
 
 \author{
   Eugene Andrie Merwe-Chartier\\
@@ -28,24 +29,28 @@
   \href{mailto:contact@cupel.foundation}{contact@cupel.foundation}
 }
 
-\date{18 March 2026 (revised; original: 11 March 2026)}
+\date{May 2026 (v0.3; previous versions: v0.1 11 March 2026, v0.2 18 March 2026)}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-Traditional professional credentials — degrees, certifications, licensing examinations — functioned
-as scalable proxies for competence. This proxy relationship has broken down as artificial intelligence
-systems demonstrate the ability to pass professional-grade assessments without possessing the judgment,
-accountability, or contextual experience that credentials were designed to signal. The result is a
-structural trust deficit in professional labour markets: credential counts have grown from 334,000 to
-1.85 million in the United States alone since 2018, yet verification quality and hiring confidence
-have simultaneously declined. This paper identifies the gap in the current market landscape — five
-fragmented layers of trust infrastructure with no cross-cutting evaluation or interoperability layer
-— and proposes Cupel, an open framework specification for professional competence provenance. Cupel
-defines a taxonomy of trust signal types, a schema for representing and linking those signals, and
-an interoperability architecture that sits above existing standards including W3C Verifiable
+The deployment of autonomous and semi-autonomous artificial intelligence agents into professional
+workflows has created a structural verification problem in the human layer those systems depend on.
+Two trends are converging. First, AI systems can now produce the signals of professional competence
+— passing licensing examinations, generating credible portfolios, drafting credentialed work — without
+possessing the judgment, accountability, or contextual experience that credentials were designed to
+indicate. Second, the apprenticeship pipeline through which qualified human supervisors are produced
+is contracting: entry-level technology hiring at the top fifteen firms fell 25\% between 2023 and
+2024~\cite{signalfire2024}, and UK graduate technology roles fell 46\% in 2024~\cite{rezi2026}. These
+trends compound: organisations are deploying systems faster than they can identify the humans
+capable of supervising them, while simultaneously narrowing the pipeline that produces such humans.
+This paper identifies the resulting gap, characterises the property of competence that matters in
+agent-mediated work — what we term competence \emph{below the abstraction layer} — and proposes
+Cupel, an open framework specification for professional competence provenance. Cupel defines a
+taxonomy of five trust signal types, a JSON-LD schema for representing and linking those signals,
+and an interoperability architecture that sits above existing standards including W3C Verifiable
 Credentials, C2PA, the Credential Transparency Description Language (CTDL), and Open Badges 3.0.
 The framework is released under Apache 2.0, with trademark protection ensuring conformance integrity.
 \end{abstract}
@@ -56,35 +61,104 @@ The framework is released under Apache 2.0, with trademark protection ensuring c
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Introduction}
 
-Professional credentials have historically served a dual purpose: they conveyed information about
-competence to parties unable to evaluate it directly, and they created accountability infrastructure
-around professional practice. A chartered accountant, licensed physician, or admitted barrister was
-not merely a knowledge marker — they were an accountability node embedded in a system of professional
-bodies, regulatory oversight, and liability mechanisms.
+When an autonomous agent files a tax return, drafts a contract, recommends a clinical course of
+action, or commits production code, the integrity of that output depends on a qualified human who
+can detect its errors, intervene meaningfully, and accept professional responsibility. The
+credential system that organised professional labour markets for most of the twentieth century was
+designed in part to identify those humans: a chartered accountant, licensed physician, or admitted
+barrister was not merely a knowledge marker but an accountability node embedded in a system of
+professional bodies, regulatory oversight, and liability mechanisms.
 
-The effectiveness of credentials as competence proxies depended on a single equilibrium condition:
-\emph{gaming the proxy must be roughly as hard as becoming genuinely competent}. This condition has
-been violated. In September 2025, large language models passed CFA Level III mock examinations
-including written essays. The same pattern has emerged across the bar exam, medical licensing
+This identification system is failing on two fronts simultaneously, and the failure is
+accelerating.
+
+\textbf{The signal is no longer informative.} The effectiveness of credentials as competence proxies
+depended on a single equilibrium condition: \emph{gaming the proxy must be roughly as hard as
+becoming genuinely competent}. This condition has been violated. In September 2025, large language
+models passed CFA Level III mock examinations including written essays, with leading models scoring
+above 79\%~\cite{nyustern2025}. The same pattern has emerged across the bar exam, medical licensing
 examinations, and engineering certification assessments. AI systems can acquire the signal without
-acquiring the substance.
+acquiring the substance. This is a textbook instantiation of Goodhart's Law: when a measure becomes
+a target, it ceases to be a good measure~\cite{goodhart1975}. The market response — issuing more
+credentials, from 334,114 unique credentials in the United States in 2018 to 1.85 million by
+2025~\cite{credentialengine2025} — has increased signal volume while continuing to degrade signal
+quality. Gartner projects that one in four candidate profiles worldwide will be entirely fabricated
+by 2028, and 41\% of enterprises report having already onboarded a fraudulent
+candidate~\cite{gartner2025}.
 
-This is a textbook instantiation of Goodhart's Law: when a measure becomes a target, it ceases to be
-a good measure~\cite{goodhart1975}. The credential system is not simply degrading — it is
-fragmenting. The number of unique credentials in the United States grew from 334,114 in 2018 to
-1.85 million by 2025~\cite{credentialengine2025}. The system has responded to declining signal
-quality by increasing signal volume, which compounds the original problem.
+\textbf{The pipeline that produces qualified supervisors is contracting.} Entry-level technology
+hiring at the top fifteen firms fell 25\% between 2023 and 2024~\cite{signalfire2024}; UK graduate
+technology roles fell 46\% in 2024~\cite{rezi2026}. Junior roles are not interchangeable with senior
+ones — they are the structured apprenticeship layer through which senior practitioners are formed.
+Organisations compressing junior hiring are defunding their own future supervisory capacity. The
+problem is time-delayed: by the time the shortage of qualified supervisors becomes acute, the cohort
+that would have filled those roles will not exist.
 
-The consequences are empirically measurable. SHRM research shows that educational background dropped
-from the fourth most important hiring factor among HR professionals in 2021 to sixth by 2025.
-Gartner projects that one in four candidate profiles worldwide will be entirely fabricated by 2028,
-and 41\% of enterprises report having already onboarded a fraudulent candidate~\cite{gartner2025}.
-Nearly one in four HR professionals report that credential quality is too difficult to
-determine~\cite{shrm2025}.
+\textbf{Deployment is outpacing oversight.} Multi-agent system adoption rose 327\% in four
+months~\cite{databricks2026}. Only one in five companies has mature governance for autonomous
+agents~\cite{deloitte2026}. 78\% of AI users bring personal tools to work, often outside any
+oversight framework~\cite{aigov2025}. The European Union's AI Act activates high-risk compliance
+obligations through 2026, with Article 14 requiring meaningful human oversight and Article 50
+imposing content provenance obligations~\cite{euaiact2024}. These obligations presuppose a
+verifiable population of competent supervisors. No mechanism currently exists to identify that
+population at scale.
 
-The problem is structural, not cyclical. It requires new infrastructure, not incremental improvement
-of existing systems. This paper describes that infrastructure: the Cupel Professional Competence
-Provenance Framework.
+The problem is structural, not cyclical. The signal layer of professional labour markets and the
+supervisory layer for AI deployment have become the same problem: organisations need to know which
+humans can genuinely catch the errors that machines now produce at scale. This paper describes the
+infrastructure that closes that gap: the Cupel Professional Competence Provenance Framework.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Below the Abstraction Layer}
+
+A central claim of this paper is that the property of competence which now matters in
+agent-mediated work is not well captured by existing credentialing frameworks. We call this
+property competence \emph{below the abstraction layer}.
+
+Most professional credentials measure performance \emph{above} the AI abstraction layer — on
+tasks that AI systems can now also perform. A candidate who can pass the CFA Level III
+demonstrates an ability that a large language model also demonstrates. The credential, on its own,
+no longer discriminates between the two. Performance at this level has become diagnostic of
+nothing more specific than the ability to produce credentialed output.
+
+Competence below the abstraction layer is qualitatively different. It is the ability to:
+
+\begin{itemize}[noitemsep]
+  \item recognise when an AI output is wrong, in cases where the error is non-obvious to a
+        non-expert evaluator;
+  \item identify the specific dimension on which the output is wrong (factually, structurally,
+        contextually, ethically);
+  \item determine what corrective action is appropriate and, where applicable, execute it;
+  \item accept professional responsibility for the corrected output under the relevant
+        accountability framework.
+\end{itemize}
+
+Three illustrative cases clarify the distinction:
+
+A clinician using an AI system to read a diagnostic scan is not abdicating responsibility to the
+system. The clinician retains diagnostic authority. The signal that matters is whether the
+clinician can recognise a subtle finding that the model missed or misclassified — not whether the
+clinician could replicate the model's general performance on a licensing examination.
+
+A code reviewer approving an AI-generated patch must be able to identify a security vulnerability
+that the model did not flag. The reviewer's competence is judged by what they catch, not by what
+they would produce unassisted.
+
+A compliance officer signing off on an AI-drafted disclosure must understand the regulatory rule
+the AI applied, the conditions under which that rule has exceptions, and whether the present case
+falls within those exceptions. The signature is meaningful only if the officer has the capacity
+to dissent.
+
+In each case, the human is exercising what regulators term ``human oversight'' or ``human in the
+loop''~\cite{euaiact2024}. The legal and ethical force of that oversight depends entirely on
+whether the human can in fact catch the loop's mistakes — a property that traditional credentials
+were not designed to verify, and that AI-era credential gaming makes harder to verify by surface
+inspection.
+
+Cupel's design centres on producing legible signals of competence below the abstraction layer.
+The five trust signal types defined in Section~5 are each ways of evidencing this property; the
+multi-signal model is the framework's principal answer to the question of how such competence
+can be verified at scale without recreating the gameable conditions of single-signal credentialing.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{What Credentials Actually Did}
@@ -313,9 +387,9 @@ mechanism, not a technical mandate. It follows the pattern of email sender reput
 (SPF/DKIM scoring) and OpenID Federation's trust chains: no central authority assigns
 credibility; credibility emerges from the longitudinal track record of each issuer's signals.
 Evaluators weight signals from high-integrity issuers more heavily, and the market incentivises
-issuers to maintain signal quality. The issuer trust registry is part of the commercial
-open-core layer rather than the open specification, as it requires ongoing data collection and
-curation infrastructure.
+issuers to maintain signal quality. The registry itself requires ongoing data collection and
+curation infrastructure; the specification defines the interface but does not mandate a single
+operator.
 
 \subsection{Relationship to Existing Standards}
 
@@ -344,36 +418,51 @@ composite professional competence provenance profile to be constructed from sign
 in any of the above ecosystems.
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{Licensing and IP Strategy}
+\section{Licensing and Conformance}
 
 The framework specification and core schema are released under Apache 2.0. Any implementation
 may use the technical content without restriction. The Cupel name and logo are trademarked
 (UK00004352899, filed 11 March 2026), ensuring that conformance claims carry meaning: only
 implementations that meet published conformance criteria may identify themselves as Cupel
-implementations. This follows the Linux and OpenID precedent.
+implementations. This follows the Linux and OpenID precedent, where an open technical artefact
+is paired with a protected name to prevent the dilution of conformance through unverified
+implementations.
 
-Evaluation algorithms, signal quality scoring methodologies, and governance tooling are
-reserved under a commercial licence as part of the open core model. This structure allows the
-specification to achieve broad adoption while sustaining the development work required to
-maintain it.
+The selection of Apache 2.0 in preference to a copyleft licence reflects an adoption-first
+strategy. The framework's value depends on broad cross-industry uptake; a permissive licence
+removes friction for commercial implementers and standards bodies that would be unable to adopt
+a strong copyleft licence as a matter of internal policy. The specification is intended to be
+usable without restriction by both open and proprietary implementations.
+
+Specific operational infrastructure that supports the framework — for example, an issuer trust
+registry that aggregates real-world signal-outcome correlations — may be operated by independent
+parties under their own governance arrangements. The specification defines what such
+infrastructure must do to be conformant; it does not nominate a single operator and does not
+preclude any particular funding model.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
 
 The credential system that organised professional labour markets for most of the twentieth century
-is structurally compromised. The cause is not a failure of the system's operators but a
-fundamental breakdown in the equilibrium condition on which the system depended. AI has made
-it possible to acquire the signal without acquiring the substance.
+is structurally compromised, and the supervisory layer that AI deployment depends upon rests on
+the same compromised foundation. The cause is not a failure of operators but the convergence of
+three trends: AI systems that can produce the surface signals of competence without the
+substance, a contracting apprenticeship pipeline that is narrowing the cohort of practitioners
+from which future supervisors will be drawn, and an accelerating deployment of agents into roles
+that presuppose competent human oversight.
 
 The market response to date has concentrated on defensive infrastructure: detecting fraud,
-testing skills in controlled environments. The constructive work of building new positive trust
-infrastructure — systems that capture and verify demonstrated judgment over time — is largely
-undone.
+testing skills in controlled environments, verifying that AI outputs meet quality thresholds.
+The constructive work of building new positive trust infrastructure — systems that identify and
+track the humans capable of supervising agent work over time — is largely undone.
 
 Cupel proposes the architecture for that infrastructure. It is released as an open standard
-because the problem requires coalition, not competition. The specification, reference
-implementation, and governance framework are available at
-\href{https://github.com/vdmeu/CUPEL}{github.com/vdmeu/CUPEL} and
+because the problem requires coalition, not competition. The framework's contribution is
+deliberately bounded: it specifies a common vocabulary, a data format, and an interoperability
+architecture. It does not assert what makes someone competent; it provides the substrate on
+which competence claims from many sources can be expressed, linked, and evaluated together. The
+specification, reference implementation in development, and governance framework are available
+at \href{https://github.com/vdmeu/CUPEL}{github.com/vdmeu/CUPEL} and
 \href{https://cupel.foundation}{cupel.foundation}.
 
 The framework's adoption strategy targets the alternative credential and micro-assessment
@@ -383,12 +472,17 @@ the most to gain from interoperability — their signals are currently unreadabl
 hiring systems — and no incumbent lock-in to protect. Broad adoption in the long tail of the
 credential ecosystem creates the interoperability pressure that eventually compels larger
 platforms to participate, mirroring the bottom-up adoption dynamics of C2PA and Open Badges.
-Regulatory tailwinds — particularly the EU AI Act's transparency requirements — provide
-additional leverage with larger incumbents for whom compliance creates a structural incentive
-to adopt standardised provenance formats.
+Regulatory tailwinds — particularly the EU AI Act's transparency and oversight requirements —
+provide additional leverage with larger incumbents for whom compliance creates a structural
+incentive to adopt standardised provenance formats.
 
-Community input on the taxonomy, schema, and interoperability mappings is welcomed through the
-repository's issue tracker and discussion board.
+Several open questions remain, and the framework is offered for community engagement rather
+than as a finished proposal. Among them: the technical specification of a live provenance signal
+data model; the operational design of selective disclosure under the General Data Protection
+Regulation and equivalent regimes; the resistance properties of the multi-signal model against
+sophisticated gaming strategies; and the appropriate governance arrangements for an issuer
+trust registry. Community input on the taxonomy, schema, and interoperability mappings is
+welcomed through the repository's issue tracker and discussion board.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
@@ -399,6 +493,36 @@ which serves as the timestamped record of the intellectual origin of this work.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{9}
+
+\bibitem{nyustern2025}
+NYU Stern School of Business and Goodfin (2025).
+\textit{AI Performance on the CFA Examinations}.
+Working Paper, NYU Stern School of Business.
+
+\bibitem{signalfire2024}
+SignalFire (2024).
+\textit{State of Tech Talent Report: Entry-Level Hiring Trends at the Top 15 Tech Firms}.
+SignalFire Research.
+
+\bibitem{rezi2026}
+Rezi.ai (2026).
+\textit{UK Tech Graduate Roles Report: 2024 Hiring Outcomes}.
+Rezi.ai, January 2026.
+
+\bibitem{deloitte2026}
+Deloitte (2026).
+\textit{State of Generative AI in the Enterprise: Governance and Risk}.
+Deloitte Insights.
+
+\bibitem{databricks2026}
+Databricks (2026).
+\textit{Multi-Agent System Adoption Report}.
+Databricks Research.
+
+\bibitem{aigov2025}
+AI Governance Benchmark (2025).
+\textit{Shadow AI in the Workplace: Adoption and Oversight Gaps}.
+AI Governance Benchmark Consortium.
 
 \bibitem{goodhart1975}
 Goodhart, C.A.E. (1975).

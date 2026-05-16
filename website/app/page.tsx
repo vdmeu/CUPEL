@@ -5,7 +5,7 @@ const signals = [
     number: "01",
     name: "Credentials",
     description:
-      "Certificates and diplomas from accredited institutions — verified against the issuer's registry.",
+      "Certificates and diplomas from accredited institutions, verified against the issuer's registry.",
   },
   {
     number: "02",
@@ -54,6 +54,11 @@ const audiences = [
     description:
       "Share what genuine competence looks like in your field. Your insight shapes the framework.",
   },
+  {
+    role: "Anyone deploying AI responsibly",
+    description:
+      "If you are deploying AI systems and finding you don't know who can genuinely supervise them, you are facing the problem Cupel is built to address.",
+  },
 ];
 
 export default function Home() {
@@ -73,39 +78,97 @@ export default function Home() {
         {/* Hero */}
         <section className="py-16 border-b border-[var(--border)]">
           <h1 className="text-3xl font-semibold leading-tight text-[var(--foreground)] mb-4">
-            A common layer for professional trust
+            When AI does the work, who checks it?
           </h1>
           <p className="text-lg text-[var(--muted)] max-w-xl leading-relaxed">
-            Cupel is an open framework that connects the systems already used to verify competence
-            — so that human expertise is recognisable in an AI-saturated world.
+            Cupel is an open framework for tracing professional competence — so the humans who
+            supervise AI work are identifiable, accountable, and recognisable across the systems
+            that already exist.
           </p>
         </section>
 
-        {/* The problem */}
+        {/* The supervision question */}
         <section className="py-12 border-b border-[var(--border)]">
           <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
-            The problem
+            The supervision question
           </h2>
           <div className="space-y-4 text-[var(--foreground)]">
             <p>
-              Credentials used to show what people could do. Now, they often show what machines
-              can produce. AI can pass the CFA Level III. It can pass the bar. It can generate
-              the signal of competence without the substance.
+              When an AI agent files a tax return, drafts a contract, recommends a treatment, or
+              writes production code, someone needs to catch its mistakes. That someone has
+              historically been a qualified human, whose competence we could reasonably infer
+              from their credentials.
             </p>
             <p>
-              The market responded by creating more credentials — the U.S. went from 334,000
-              in 2018 to 1.85 million by 2025. But more isn&apos;t better. Gartner forecasts that
-              one in four candidate profiles could be entirely AI-fabricated by 2028.
+              That inference is no longer reliable, and the pipeline that produced those
+              qualified humans is contracting.
+            </p>
+            <p>
+              AI can now pass professional exams that once took humans years to master. Leading
+              models score above 79% on the CFA Level III. Similar results hold in medicine,
+              engineering, and law. Credentials that once identified capable humans now
+              identify anyone — or anything — that can pass an exam.
+            </p>
+            <p>
+              At the same time, entry-level technology hiring at the top 15 firms fell 25%
+              between 2023 and 2024. UK graduate technology roles fell 46% in 2024. Junior roles
+              are where senior practitioners are made. The cohort that should become tomorrow's
+              supervisors is being thinned today.
+            </p>
+            <p className="font-medium">
+              We are deploying AI systems faster than we are identifying the humans who can
+              supervise them.
+            </p>
+          </div>
+        </section>
+
+        {/* Why more credentials won't help */}
+        <section className="py-12 border-b border-[var(--border)]">
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
+            Why more credentials won&apos;t solve this
+          </h2>
+          <div className="space-y-4 text-[var(--foreground)]">
+            <p>
+              The market has responded by issuing more credentials. The U.S. went from 334,000
+              in 2018 to 1.85 million by 2025. Yet HR professionals report decreasing confidence
+              in what those credentials mean, and Gartner forecasts that one in four candidate
+              profiles could be entirely AI-fabricated by 2028.
+            </p>
+            <p>
+              When everyone optimises for the measure, the measure stops working. That&apos;s
+              Goodhart&apos;s Law in action — and credentials, on their own, are now subject to it.
             </p>
             <p>
               Five separate systems already support professional trust: identity verification,
-              skills assessment, digital credentials, content authenticity, and reputation.
-              Each works on its own — but they don&apos;t connect. There&apos;s no shared way to
-              describe, compare, or verify proof of real competence across them.
+              skills assessment, digital credentials, content authenticity, and reputation. Each
+              works on its own. None connect. There is no shared way to ask, across all of them,
+              the question that actually matters: <em>can this person catch an AI error in
+              this domain?</em>
+            </p>
+          </div>
+        </section>
+
+        {/* Below the abstraction layer */}
+        <section className="py-12 border-b border-[var(--border)]">
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
+            Below the abstraction layer
+          </h2>
+          <div className="space-y-4 text-[var(--foreground)]">
+            <p>
+              Most credentials measure performance <em>above</em> the AI abstraction layer — on
+              tasks AI can now also perform. The signal that matters now is competence{" "}
+              <em>below</em> the abstraction layer: the ability to catch an error in the AI&apos;s
+              work, intervene meaningfully, and accept responsibility for what was produced.
+            </p>
+            <p>
+              A doctor who uses AI to read a scan and then makes the diagnosis is fully
+              responsible for it. A code reviewer who approves an AI-generated patch must be
+              able to recognise a subtle vulnerability the model missed. A compliance officer
+              who signs off on an AI-drafted disclosure must understand the rule the AI applied.
             </p>
             <p className="font-medium">
-              We don&apos;t need new systems. We need a common layer that connects the ones we
-              already have.
+              &ldquo;Human in the loop&rdquo; is meaningful only when the human can actually
+              catch the loop&apos;s mistakes.
             </p>
           </div>
         </section>
