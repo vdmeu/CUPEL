@@ -1,14 +1,14 @@
 # Roadmap
 
-## Phase 0: Genesis (Current)
+## Phase 0: Genesis
 - [x] Establish analytical foundation and market research
 - [x] Document the chain of reasoning (conversation context)
 - [x] Create project structure
-- [ ] Register trademark for Cupel (name finalised February 2026)
-- [ ] Establish timestamped prior art (arXiv preprint or equivalent)
+- [x] Register trademark for Cupel (name finalised February 2026)
+- [x] Establish timestamped prior art (arXiv preprint or equivalent)
 
-## Phase 1: Manifesto & Specification Draft
-- [ ] Draft public manifesto (the "why this matters" document for coalition-building)
+## Phase 1: Manifesto & Specification Draft (Current)
+- [x] Draft public manifesto (the "why this matters" document for coalition-building)
 - [ ] Define trust signal taxonomy v0.1
 - [ ] Draft core schema (JSON-LD format, aligned with W3C VC data model)
 - [ ] Map interoperability touchpoints with C2PA, CTDL, Open Badges 3.0

@@ -172,7 +172,7 @@ export default function Home() {
             signals to share and with whom. The framework has no central registry of people.
           </div>
           <p className="mt-5 text-sm text-[var(--muted)]">
-            The project is open-source (AGPL-3.0) and trademark-protected (UK IPO No. UK00004352899).
+            The project is open-source (Apache 2.0) and trademark-protected (UK IPO No. UK00004352899).
             &ldquo;Cupel-conformant&rdquo; means meeting published technical and ethical criteria —
             just as Linux or OpenID use open technology with protected names.
           </p>
