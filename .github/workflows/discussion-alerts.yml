@@ -1,0 +1,44 @@
+name: Telegram alerts for discussion activity
+
+on:
+  discussion:
+    types: [created]
+  discussion_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram alert
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ "${{ github.event_name }}" = "discussion" ]; then
+            CATEGORY="${{ github.event.discussion.category.name }}"
+            TITLE="${{ github.event.discussion.title }}"
+            URL="${{ github.event.discussion.html_url }}"
+            AUTHOR="${{ github.event.discussion.user.login }}"
+            MSG="CUPEL discussion — ${CATEGORY}%0A${TITLE}%0ABy: ${AUTHOR}%0A${URL}"
+
+          elif [ "${{ github.event_name }}" = "discussion_comment" ]; then
+            TITLE="${{ github.event.discussion.title }}"
+            URL="${{ github.event.comment.html_url }}"
+            AUTHOR="${{ github.event.comment.user.login }}"
+            MSG="CUPEL reply — ${TITLE}%0ABy: ${AUTHOR}%0A${URL}"
+
+          elif [ "${{ github.event_name }}" = "issues" ]; then
+            TITLE="${{ github.event.issue.title }}"
+            URL="${{ github.event.issue.html_url }}"
+            AUTHOR="${{ github.event.issue.user.login }}"
+            LABELS="${{ join(github.event.issue.labels.*.name, ', ') }}"
+            MSG="CUPEL issue — ${TITLE}%0ABy: ${AUTHOR}%0ALabels: ${LABELS}%0A${URL}"
+          fi
+
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -d "chat_id=${CHAT_ID}" \
+            -d "text=${MSG}" \
+            -d "disable_web_page_preview=true"
