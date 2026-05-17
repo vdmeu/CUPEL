@@ -33,31 +33,40 @@ const signals = [
   },
 ];
 
-const audiences = [
+const entryPoints = [
   {
-    role: "Implementers",
-    description:
-      "Connect your existing credentials or assessments to the Cupel taxonomy. You don't need to adopt everything at once.",
+    audience: "Building on Cupel",
+    description: "Mapping your credentials, assessments, or platform to the Cupel taxonomy.",
+    cta: "Share progress or ask a question",
+    href: "https://github.com/vdmeu/CUPEL/discussions/24",
   },
   {
-    role: "Standards bodies",
+    audience: "Standards work",
     description:
-      "Work with us on mappings between Cupel and your specifications — W3C, C2PA, Credential Engine, 1EdTech, and others.",
+      "Working on W3C VC, C2PA, Credential Engine, 1EdTech, or another relevant standard.",
+    cta: "Propose or discuss a mapping",
+    href: "https://github.com/vdmeu/CUPEL/discussions/25",
   },
   {
-    role: "Researchers",
+    audience: "Field practice",
     description:
-      "Help build the evidence base for what makes a professional signal trustworthy, especially in human–AI collaboration.",
+      "A practitioner or employer who knows what genuine competence looks like in your domain.",
+    cta: "Tell us what you see",
+    href: "https://github.com/vdmeu/CUPEL/discussions/26",
   },
   {
-    role: "Practitioners and employers",
+    audience: "Research",
     description:
-      "Share what genuine competence looks like in your field. Your insight shapes the framework.",
+      "Building the empirical or theoretical evidence base for competence verification.",
+    cta: "Engage with the open questions",
+    href: "https://github.com/vdmeu/CUPEL/discussions/27",
   },
   {
-    role: "Anyone deploying AI responsibly",
+    audience: "AI deployment",
     description:
-      "If you are deploying AI systems and finding you don't know who can genuinely supervise them, you are facing the problem Cupel is built to address.",
+      "Deploying AI systems and finding you don't know who can genuinely supervise them.",
+    cta: "Start with the open questions",
+    href: "https://github.com/vdmeu/CUPEL/discussions/28",
   },
 ];
 
@@ -241,18 +250,55 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Who we invite */}
+        {/* Get involved */}
         <section className="py-12 border-b border-[var(--border)]">
-          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
-            Who we invite
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-2">
+            Get involved
           </h2>
-          <div className="space-y-6">
-            {audiences.map((a) => (
-              <div key={a.role}>
-                <div className="font-semibold text-[var(--foreground)] mb-1">{a.role}</div>
-                <div className="text-[var(--muted)]">{a.description}</div>
+          <p className="text-sm text-[var(--muted)] mb-8">
+            Participation happens on GitHub. Find the entry point that fits your situation.
+          </p>
+          <div className="space-y-4">
+            {entryPoints.map((e) => (
+              <div key={e.audience} className="border border-[var(--border)] rounded-sm p-5 flex flex-col sm:flex-row sm:items-center gap-3">
+                <div className="flex-1">
+                  <div className="font-semibold text-[var(--foreground)] mb-0.5">{e.audience}</div>
+                  <div className="text-sm text-[var(--muted)]">{e.description}</div>
+                </div>
+                <a
+                  href={e.href}
+                  className="shrink-0 text-sm font-medium text-[var(--foreground)] underline underline-offset-4 hover:text-[var(--accent)] transition-colors whitespace-nowrap"
+                >
+                  {e.cta} →
+                </a>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Sign on */}
+        <section className="py-12 border-b border-[var(--border)]">
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
+            Sign on as a supporter
+          </h2>
+          <p className="text-[var(--foreground)] mb-5">
+            If the framework addresses a problem you recognise, add your name. Public endorsements
+            from credible people matter more than volume. The signatories page lists everyone
+            who has signed on.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://github.com/vdmeu/CUPEL/issues/new?template=signatory.md"
+              className="text-sm font-medium text-[var(--foreground)] underline underline-offset-4 hover:text-[var(--accent)] transition-colors"
+            >
+              Sign on via GitHub →
+            </a>
+            <a
+              href="/signatories"
+              className="text-sm font-medium text-[var(--muted)] underline underline-offset-4 hover:text-[var(--foreground)] transition-colors"
+            >
+              View signatories →
+            </a>
           </div>
         </section>
       </main>
