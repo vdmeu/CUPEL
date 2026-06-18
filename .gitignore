@@ -19,6 +19,4 @@ __pycache__/
 .tmp.driveupload/
 
 # Dispatcher artefacts (generated per-task, not versioned)
-.dispatcher-prompt-*.txt
-.dispatcher-session-*.log
-.dispatcher-run-*.sh
+.dispatcher-sessions/
