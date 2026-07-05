@@ -54,8 +54,9 @@ cupel/
 
 **Phase 1: Manifesto & Specification** — Manifesto published. Schema and taxonomy in progress.
 
-- Timestamped preprint: [doi.org/10.5281/zenodo.18976395](https://doi.org/10.5281/zenodo.18976395) (v0.2 published 18 March 2026; v0.3 awaiting Zenodo upload)
-- Manifesto: [docs/01-manifesto/manifesto-v0.5.md](docs/01-manifesto/manifesto-v0.5.md)
+- Timestamped preprint: [doi.org/10.5281/zenodo.18976395](https://doi.org/10.5281/zenodo.18976395) (v0.3 published 17 May 2026; v0.4 awaiting Zenodo upload)
+- Manifesto: [docs/01-manifesto/manifesto-v0.6.md](docs/01-manifesto/manifesto-v0.6.md)
+- cupel.foundation also publishes [Field Notes](https://cupel.foundation/notes) (periodic commentary), a [State of the Conversation](https://cupel.foundation/conversation) reference page, and an [About](https://cupel.foundation/about) page — positioning the site as an ongoing hub for the AI-provenance / credentialing / human-impact conversation, not just a static spec.
 
 See [docs/00-genesis/conversation-context.md](docs/00-genesis/conversation-context.md) for the full chain of reasoning, market research, and strategic analysis that led to this project.
 

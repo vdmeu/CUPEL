@@ -9,6 +9,7 @@
 
 ## Phase 1: Manifesto & Specification Draft (Current)
 - [x] Draft public manifesto (the "why this matters" document for coalition-building)
+- [x] Reposition cupel.foundation as an ongoing conversation hub (author byline, Field Notes, State of the Conversation page) rather than a static spec page
 - [ ] Define trust signal taxonomy v0.1
 - [ ] Draft core schema (JSON-LD format, aligned with W3C VC data model)
 - [ ] Map interoperability touchpoints with C2PA, CTDL, Open Badges 3.0

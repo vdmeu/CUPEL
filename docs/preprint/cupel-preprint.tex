@@ -21,7 +21,7 @@
 
 \title{\textbf{Cupel: A Framework for Professional Competence Provenance}\\
 \large Verifying Human Expertise in a World of Capable Machines\\
-\normalsize Position Paper and Framework Specification — v0.3}
+\normalsize Position Paper and Framework Specification — v0.4}
 
 \author{
   Eugene Andrie Merwe-Chartier\\
@@ -29,7 +29,7 @@
   \href{mailto:contact@cupel.foundation}{contact@cupel.foundation}
 }
 
-\date{May 2026 (v0.3; previous versions: v0.1 11 March 2026, v0.2 18 March 2026)}
+\date{July 2026 (v0.4; previous versions: v0.1 11 March 2026, v0.2 18 March 2026, v0.3 16 May 2026)}
 
 \begin{document}
 
@@ -52,7 +52,11 @@ Cupel, an open framework specification for professional competence provenance. C
 taxonomy of five trust signal types, a JSON-LD schema for representing and linking those signals,
 and an interoperability architecture that sits above existing standards including W3C Verifiable
 Credentials, C2PA, the Credential Transparency Description Language (CTDL), and Open Badges 3.0.
-The framework is released under Apache 2.0, with trademark protection ensuring conformance integrity.
+This revision adds an explicit treatment of the human stakes behind the pipeline data: early 2026
+labour-market evidence shows the entry ramp into knowledge work narrowing before any broad
+unemployment signal appears, which changes what an adequate policy and infrastructure response
+looks like. The framework is released under Apache 2.0, with trademark protection ensuring
+conformance integrity.
 \end{abstract}
 
 \tableofcontents
@@ -159,6 +163,42 @@ Cupel's design centres on producing legible signals of competence below the abst
 The five trust signal types defined in Section~5 are each ways of evidencing this property; the
 multi-signal model is the framework's principal answer to the question of how such competence
 can be verified at scale without recreating the gameable conditions of single-signal credentialing.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Human Stakes}
+
+The pipeline data cited in Section~1 is not merely a supply-side constraint on future supervisory
+capacity; it describes a present and specific labour-market anxiety, and the distinction matters
+for what an adequate response looks like.
+
+Anthropic's Economic Index reports that, as of early 2026, hiring of 22–25 year-olds into the
+occupations most exposed to AI has slowed by approximately 14\%, while no clear broad unemployment
+signal has yet appeared in those same occupations~\cite{aei2026}. Roughly one in five workers in
+AI-exposed jobs report concern about economic displacement, with software engineers among the most
+concerned of any profession surveyed~\cite{aei2026}. Read together, these findings indicate that
+the entry ramp into knowledge work is narrowing \emph{before} any headline unemployment figure
+moves, because employers can defer hiring decisions long before they take the more visible step of
+reducing headcount.
+
+This distinction is consequential. If the operative crisis were simply contracting employment, the
+appropriate policy response would be conventional: income support and retraining. But if the
+operative crisis is that the apprenticeship structure converting novices into accountable experts is
+quietly failing — junior roles being the mechanism by which practitioners historically acquired the
+below-the-abstraction-layer competence characterised in Section~2 — then income support and
+retraining do not address the underlying failure. What is additionally required is verification
+infrastructure that can recognise competence in practitioners who did not pass through that
+structure in the traditional way, and that can make legible who, among a shrinking cohort, is
+actually capable of supervising agent-mediated work.
+
+This also reframes who has standing in the conversation this paper is part of. The verification
+problem is not confined to standards bodies, credentialing vendors, and enterprise HR functions. It
+is a live concern for anyone whose career ladder has had rungs removed, and for anyone deciding how
+much unsupervised authority to extend to a system that no one has yet verified a human can
+adequately oversee. A parallel and growing concern, documented separately, is that AI has made
+confident commentary about these dynamics cheap to produce and correspondingly easy to overtrust,
+widening the gap between people describing the future of knowledge work and people building a
+working response to it~\cite{hbr2026}. This paper, and the open framework it proposes, is offered as
+evidence-based participation in that response rather than commentary on it.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{What Credentials Actually Did}
@@ -485,6 +525,15 @@ trust registry. Community input on the taxonomy, schema, and interoperability ma
 welcomed through the repository's issue tracker and discussion board.
 
 %% ─────────────────────────────────────────────────────────────────────────────
+\section*{About the Author}
+
+Eugene Andrie Merwe-Chartier writes and maintains Cupel as an open framework and an ongoing,
+evidence-based public argument, not as a commercial product. Correspondence, critique, and
+contributions are welcome at \href{mailto:contact@cupel.foundation}{contact@cupel.foundation} and
+\href{https://github.com/vdmeu/CUPEL}{github.com/vdmeu/CUPEL}, where periodic commentary tracking
+the framework's three constituent threads — provenance, credentialing, and the human impact of
+automated knowledge work — is also published.
+
 \section*{Acknowledgements}
 
 The analytical foundation for this framework was developed in February 2026 and is documented
@@ -584,6 +633,16 @@ NACE. \url{https://www.naceweb.org/about-us/press/2026/skills-based-hiring-grows
 European Parliament and Council (2024).
 \textit{Regulation (EU) 2024/1689 on Artificial Intelligence (AI Act)}.
 \url{https://artificialintelligenceact.eu/article/14/}
+
+\bibitem{aei2026}
+Anthropic (2026).
+\textit{The Anthropic Economic Index Report}.
+Anthropic Research, March 2026. \url{https://www.anthropic.com/research/economic-index-march-2026-report}
+
+\bibitem{hbr2026}
+Harvard Business Review (2026).
+\textit{Has AI Ended Thought Leadership?}
+HBR, March 2026. \url{https://hbr.org/2026/03/has-ai-ended-thought-leadership}
 
 \end{thebibliography}
 

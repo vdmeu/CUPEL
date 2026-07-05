@@ -1,3 +1,6 @@
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+
 export const metadata = {
   title: "Signatories — Cupel",
   description: "People and organisations who have publicly endorsed the Cupel framework.",
@@ -11,14 +14,7 @@ const signatories: { name: string; affiliation: string; note?: string }[] = [
 export default function Signatories() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      <header className="border-b border-[var(--border)] bg-[var(--background)]">
-        <div className="max-w-3xl mx-auto px-6 py-5 flex items-baseline justify-between">
-          <a href="/" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
-            Cupel
-          </a>
-          <span className="text-sm text-[var(--muted)]">cupel.foundation</span>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-2xl font-semibold text-[var(--foreground)] mb-3">Signatories</h1>
@@ -73,13 +69,7 @@ export default function Signatories() {
         </div>
       </main>
 
-      <footer className="max-w-3xl mx-auto px-6 py-10 border-t border-[var(--border)]">
-        <div className="text-xs text-[var(--muted)]">
-          <a href="/" className="hover:text-[var(--foreground)] transition-colors">
-            cupel.foundation
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

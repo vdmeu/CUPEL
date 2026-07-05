@@ -1,4 +1,6 @@
 import SignalCard from "@/components/SignalCard";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const signals = [
   {
@@ -73,15 +75,7 @@ const entryPoints = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      {/* Header */}
-      <header className="border-b border-[var(--border)] bg-[var(--background)]">
-        <div className="max-w-3xl mx-auto px-6 py-5 flex items-baseline justify-between">
-          <span className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
-            Cupel
-          </span>
-          <span className="text-sm text-[var(--muted)]">cupel.foundation</span>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="max-w-3xl mx-auto px-6">
         {/* Hero */}
@@ -94,6 +88,45 @@ export default function Home() {
             supervise AI work are identifiable, accountable, and recognisable across the systems
             that already exist.
           </p>
+          <p className="text-sm text-[var(--muted)] mt-4">
+            Written and maintained by{" "}
+            <a href="/about" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+              Eugene Andrie Merwe-Chartier
+            </a>
+            . New commentary in{" "}
+            <a href="/notes" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+              Field Notes
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* Three questions, one conversation */}
+        <section className="py-12 border-b border-[var(--border)]">
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
+            Three questions, one conversation
+          </h2>
+          <div className="space-y-4 text-[var(--foreground)]">
+            <p>
+              Three questions about AI are usually asked separately, by separate communities, in
+              separate rooms: <em>who made this, and how</em> (provenance) — <em>who can be
+              trusted to check an AI&apos;s work</em> (credentialing) — and <em>what happens to
+              the humans whose work AI now does</em> (the human stakes, which most commentary
+              addresses with opinion rather than evidence).
+            </p>
+            <p>
+              They are one problem viewed from three angles. This site is where I follow all
+              three together: the Cupel framework below is the credentialing answer, but{" "}
+              <a href="/notes" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+                Field Notes
+              </a>{" "}
+              and the{" "}
+              <a href="/conversation" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+                State of the Conversation
+              </a>{" "}
+              page track the other two as they develop.
+            </p>
+          </div>
         </section>
 
         {/* The supervision question */}
@@ -153,6 +186,33 @@ export default function Home() {
               works on its own. None connect. There is no shared way to ask, across all of them,
               the question that actually matters: <em>can this person catch an AI error in
               this domain?</em>
+            </p>
+          </div>
+        </section>
+
+        {/* The human stakes */}
+        <section className="py-12 border-b border-[var(--border)]">
+          <h2 className="text-xs font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
+            The human stakes
+          </h2>
+          <div className="space-y-4 text-[var(--foreground)]">
+            <p>
+              Anthropic&apos;s Economic Index reports hiring of 22-25 year-olds into the most
+              AI-exposed roles down roughly 14% by early 2026 — with no broad unemployment signal
+              yet in those occupations. About one in five workers in AI-exposed jobs already report
+              concern about displacement.
+            </p>
+            <p>
+              Read together, this means the entry ramp into knowledge work is narrowing before any
+              headline unemployment number moves, because employers can defer hiring long before
+              they cut headcount. That is a different problem to &ldquo;AI is taking jobs,&rdquo;
+              and it needs a different answer: not just income support, but a way to verify who can
+              supervise agent-mediated work when fewer people get to become senior through the
+              traditional route.
+            </p>
+            <p className="font-medium">
+              This conversation belongs to more than standards bodies and HR platforms — it belongs
+              to anyone whose career ladder just lost rungs.
             </p>
           </div>
         </section>
@@ -303,32 +363,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="max-w-3xl mx-auto px-6 py-10">
-        <div className="flex flex-col sm:flex-row gap-4 text-sm text-[var(--muted)]">
-          <a
-            href="https://github.com/vdmeu/CUPEL"
-            className="hover:text-[var(--foreground)] transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://doi.org/10.5281/zenodo.18976395"
-            className="hover:text-[var(--foreground)] transition-colors"
-          >
-            Preprint (DOI 10.5281/zenodo.18976395)
-          </a>
-          <a
-            href="mailto:contact@cupel.foundation"
-            className="hover:text-[var(--foreground)] transition-colors"
-          >
-            contact@cupel.foundation
-          </a>
-        </div>
-        <div className="mt-4 text-xs text-[var(--border)]">
-          Cupel is a trademark of Eugene Andrie Merwe-Chartier. Open-source under Apache 2.0.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
