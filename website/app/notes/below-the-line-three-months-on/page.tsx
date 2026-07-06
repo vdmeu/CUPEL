@@ -43,11 +43,18 @@ export default function Post() {
             the plumbing for &quot;who is the accountable human.&quot;
           </p>
           <p>
-            <strong>Credential integrity.</strong> Gartner&apos;s forecast that one in four
-            candidate profiles could be entirely AI-fabricated by 2028 is no longer a distant
-            projection — it is the direction the data has been moving since 2025, alongside a U.S.
-            credential count that grew from 334,000 in 2018 to 1.85 million by 2025 with falling HR
-            confidence in what any of them mean.
+            <strong>Credential integrity.</strong> The credential-fraud trend covered on the{" "}
+            <a href="/" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+              homepage
+            </a>{" "}
+            — Gartner&apos;s forecast on AI-fabricated candidate profiles, a U.S. credential count
+            that grew from 334,000 in 2018 to 1.85 million by 2025 — has continued in the same
+            direction this quarter, with falling HR confidence in what any of them mean. Sources
+            are on the{" "}
+            <a href="/conversation" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+              State of the Conversation
+            </a>{" "}
+            page.
           </p>
           <p>
             The obligation to disclose what AI did (provenance) is arriving faster than the ability

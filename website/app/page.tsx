@@ -264,9 +264,9 @@ export default function Home() {
             What Cupel is
           </h2>
           <p className="mb-5 text-[var(--foreground)]">
-            Cupel is an open framework — a vocabulary, a data format, and a set of guidelines —
-            not a platform. Any credential issuer, assessment body, or HR platform can participate
-            without changing their core infrastructure.
+            Cupel is an open framework — a vocabulary, with a data format and standard mappings in
+            draft — not a platform. Any credential issuer, assessment body, or HR platform will be
+            able to participate without changing their core infrastructure.
           </p>
           <ul className="space-y-3 text-[var(--foreground)]">
             <li className="flex gap-3">
@@ -280,7 +280,15 @@ export default function Home() {
               <span className="text-[var(--accent)] mt-0.5 shrink-0">—</span>
               <span>
                 <strong>A lightweight data format</strong> (JSON-LD, compatible with W3C Verifiable
-                Credentials) for expressing and linking these signals.
+                Credentials) for expressing and linking these signals — in draft, not yet
+                published. Track progress on the{" "}
+                <a
+                  href="https://github.com/vdmeu/CUPEL/blob/main/ROADMAP.md"
+                  className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors"
+                >
+                  roadmap
+                </a>
+                .
               </span>
             </li>
             <li className="flex gap-3">
@@ -294,7 +302,7 @@ export default function Home() {
               <span className="text-[var(--accent)] mt-0.5 shrink-0">—</span>
               <span>
                 <strong>Standard mappings</strong> to C2PA, W3C VC, Credential Engine, and
-                1EdTech, so platforms can integrate gradually.
+                1EdTech, so platforms can integrate gradually — planned, not yet drafted.
               </span>
             </li>
           </ul>
@@ -304,9 +312,14 @@ export default function Home() {
             signals to share and with whom. The framework has no central registry of people.
           </div>
           <p className="mt-5 text-sm text-[var(--muted)]">
-            The project is open-source (Apache 2.0) and trademark-protected (UK IPO No. UK00004352899).
-            &ldquo;Cupel-conformant&rdquo; means meeting published technical and ethical criteria —
-            just as Linux or OpenID use open technology with protected names.
+            The project is open-source (Apache 2.0). The trademark (UK IPO No. UK00004352899)
+            protects the name from being claimed by someone unrelated to the project — it is not
+            yet backed by a conformance test suite or multi-party governance, unlike the
+            Linux or OpenID names it&apos;s loosely modelled on. More on why in{" "}
+            <a href="/about" className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors">
+              About
+            </a>
+            .
           </p>
         </section>
 

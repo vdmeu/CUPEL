@@ -103,15 +103,15 @@ Verifying that competence — not the credential, not the title, but the genuine
 Cupel is an open framework for tracing professional competence, anchored to an ongoing public record of the wider conversation it sits inside. It defines:
 
 - A common vocabulary for five trust signal types: credential-based, assessment-based, outcome-based, peer-verified, and AI audit trail
-- A lightweight data format (JSON-LD) for expressing and linking these signals
+- A lightweight data format (JSON-LD) for expressing and linking these signals — in draft, not yet published (see the [roadmap](https://github.com/vdmeu/CUPEL/blob/main/ROADMAP.md))
 - Guidelines for evaluating how much evidential weight each signal carries
-- Mappings to existing standards so platforms can integrate gradually
+- Mappings to existing standards so platforms can integrate gradually — planned, not yet drafted
 
 Cupel works with existing systems, not against them. Any credential issuer, assessment body, or HR platform can participate without changing their core infrastructure.
 
 The framework is designed for selective disclosure. Participation is voluntary. Individuals choose what signals to share and with whom. Cupel maintains no central registry of people.
 
-The project is open-source (Apache 2.0) and trademark-protected (UK IPO No. UK00004352899). "Cupel-conformant" means meeting published technical and ethical criteria — just as Linux or OpenID use open technology with protected names.
+The project is open-source (Apache 2.0). The trademark (UK IPO No. UK00004352899) protects the name from being claimed by someone unrelated to the project — it is not yet backed by a conformance test suite or multi-party governance, unlike the Linux or OpenID names it's loosely modelled on.
 
 Alongside the framework, [cupel.foundation](https://cupel.foundation) publishes Field Notes — periodic, evidence-based commentary tracking how the provenance, credentialing, and human-impact threads are actually developing — and a running State of the Conversation reference page linking the primary sources worth reading.
 

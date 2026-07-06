@@ -37,11 +37,25 @@ export default function About() {
             impact of automated knowledge work.
           </p>
           <p>
-            I am not trying to build a company out of this. Cupel is open-source (Apache 2.0) and
-            trademark-protected (UK IPO No. UK00004352899) so that the name keeps meaning something
-            as the project grows, but the framework itself belongs to whoever wants to build on it.
-            What I want is for this to be a credible, evidence-first place to follow and contribute
-            to this conversation — and for that work to be identifiably mine.
+            I am not trying to build a company out of this. Cupel is open-source (Apache 2.0); the
+            trademark (UK IPO No. UK00004352899) exists only so a conformance claim can't later be
+            made by someone unrelated to the project, the way "Linux" or "OpenID" protect their
+            names — it is a narrower guarantee than those two, since Cupel doesn't yet have a
+            conformance test suite or multi-party governance, and I say that plainly rather than
+            imply otherwise. The framework itself belongs to whoever wants to build on it. There is
+            no advertising, no tracking, and nothing here is monetised.
+          </p>
+          <p>
+            One honest tension worth naming: writing under my own name about a moment that is
+            genuinely frightening for a lot of people also serves my own visibility, and I would
+            rather say that directly than pretend it isn't true. The way I try to keep that honest
+            is by citing primary sources rather than restating them, correcting this page and the
+            framework when the evidence changes, and not pretending a working tool exists before
+            one does — the schema and reference implementation are still in development, tracked
+            openly on the <a
+              href="https://github.com/vdmeu/CUPEL/blob/main/ROADMAP.md"
+              className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors"
+            >roadmap</a>.
           </p>
           <p>
             I write and review everything published here. Disagreement, corrections, and counter-evidence
