@@ -20,3 +20,14 @@ __pycache__/
 
 # Dispatcher artefacts (generated per-task, not versioned)
 .dispatcher-sessions/
+
+# Free-tier dispatch lane scratch (workflow/opencode-runner.mjs)
+.opencode-sessions/
+
+# Internal/operational agent files stay OUT of this PUBLIC repo. CLAUDE.md, the
+# workstream and .claude/skills/ are deliberately untracked - a 2026-08-23
+# session added CLAUDE.md here by reflex while tidying it across all projects,
+# which is exactly the mistake this comment exists to stop repeating.
+CLAUDE.md
+cupel-workstream.txt
+.claude/
